@@ -52,7 +52,13 @@ threading.Thread(target=background_task, daemon=True).start()
 @app.route('/')
 def home():
     return "✅ Lazada Stock Notifier is running!"
+@app.route('/test')
+def test():
+    import requests
+    res = requests.get("https://www.lazada.com.ph", timeout=10)
+    return f"Lazada status: {res.status_code}"
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
+
