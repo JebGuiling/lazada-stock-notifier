@@ -61,7 +61,7 @@ def test():
 def test_discord():
     import requests
 
-    WEBHOOK_URL = "YOUR_DISCORD_WEBHOOK_URL_HERE"
+    WEBHOOK_URL = "https://discord.com/api/webhooks/1423996895247995002/RS5TaUvQ9jYk84MRzLbtNlX21hPx08i56U7j5O1PLfo6qxqbKZT31yopdZ0TWQs-qExw"
     message = {"content": "✅ Test message from Lazada stock notifier!"}
 
     res = requests.post(WEBHOOK_URL, json=message)
@@ -70,5 +70,6 @@ def test_discord():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
+
 
 
