@@ -34,10 +34,16 @@ def send_discord_notif(message):
     if not DISCORD_WEBHOOK:
         print("⚠️ Missing Discord webhook!")
         return
+
+    USER_ID = "457158232356421640"  # 👈 replace this with your real ID (e.g. "1234567890123456789")
+    full_message = f"<@{USER_ID}> 🔔 {message}"
+
     try:
-        requests.post(DISCORD_WEBHOOK, json={"content": message})
+        res = requests.post(DISCORD_WEBHOOK, json={"content": full_message})
+        print(f"Discord response: {res.status_code}")
     except Exception as e:
         print(f"[Discord Error] {e}")
+
 
 def background_task():
     print("🔍 Starting Lazada stock monitor...")
@@ -70,6 +76,7 @@ def test_discord():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
+
 
 
 
