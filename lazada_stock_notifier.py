@@ -3,7 +3,7 @@ import requests
 import time
 import os
 
-DISCORD_WEBHOOK = os.getenv("DISCORD_WEBHOOK_URL")
+DISCORD_WEBHOOK = os.getenv("https://discord.com/api/webhooks/1423996895247995002/RS5TaUvQ9jYk84MRzLbtNlX21hPx08i56U7j5O1PLfo6qxqbKZT31yopdZ0TWQs-qExw")
 
 # Lazada search URLs for specific stores
 STORES = {
@@ -41,3 +41,4 @@ if __name__ == "__main__":
         for store, link in STORES.items():
             check_stock(store, link)
         time.sleep(1800)  # Check every 30 minutes
+
