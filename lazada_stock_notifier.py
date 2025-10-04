@@ -57,8 +57,18 @@ def test():
     import requests
     res = requests.get("https://www.lazada.com.ph", timeout=10)
     return f"Lazada status: {res.status_code}"
+@app.route("/test_discord")
+def test_discord():
+    import requests
+
+    WEBHOOK_URL = "YOUR_DISCORD_WEBHOOK_URL_HERE"
+    message = {"content": "✅ Test message from Lazada stock notifier!"}
+
+    res = requests.post(WEBHOOK_URL, json=message)
+    return f"Discord response: {res.status_code}"
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
+
 
